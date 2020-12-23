@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+#weather-display {
+    display: flex;
+    align-items: center;
+}
+
+.covid-display {
+    display: flex;
+    align-items: center;
+}
+
+.covid-display__icon {
+    width: 4rem;
+}

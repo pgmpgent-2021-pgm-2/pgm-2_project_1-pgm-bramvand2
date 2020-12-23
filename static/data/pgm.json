@@ -1,0 +1,115 @@
+{
+    "users" : [
+        {
+            "firstname": "Philippe",
+            "lastname": "De Pauw - Waterschoot",
+            "email": "drdynscript@gmail.com",
+            "thumbnail": "https://avatars1.githubusercontent.com/u/390219?s=400&u=a5c092182f76efb479ab17d4302b47676c4a3faf&v=4",
+            "motto": "If it works, it works!",
+            "portfolio": {
+                "gitHubUserName": "drdynscript",
+                "linkedInUserName": ""
+            },
+            "lecturer": true,
+            "dateOfBirth": 472694460
+        },
+
+        {
+            "firstname": "Michael",
+            "lastname": "Vanderpoorten",
+            "email": "michaelvanderpoorten@gmail.com",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C5603AQFcv3W19CwC-Q/profile-displayphoto-shrink_400_400/0/1601993689910?e=1614211200&v=beta&t=r3U0D0ODlEjm--mou-3i3PAMHLPxrOS0cTwlrr1sMZk",
+            "motto": "",
+            "portfolio": {
+                "gitHubUserName": "yungpanda",
+                "linkedInUserName": ""
+            },
+            "lecturer": true,
+            "dateOfBirth": 649900860
+        },
+
+        {
+            "firstname": "Mathieu",
+            "lastname": "Spillebeen",
+            "email": "mathieuspillebeen@gmail.com",
+            "thumbnail": "https://avatars2.githubusercontent.com/u/2550222?s=400&u=5b63c573c2d813cd0e05551940ea273f94fb93f3&v=4",
+            "motto": "",
+            "portfolio": {
+                "gitHubUserName": "mathieuspil",
+                "linkedInUserName": ""
+            },
+            "lecturer": true,
+            "dateOfBirth": 673488060
+        },
+
+        {
+            "firstname": "Thibault",
+            "lastname": "Fouquaert",
+            "email": "thibaultfouquaert@gmail.com",
+            "thumbnail": "https://avatars2.githubusercontent.com/u/10938848?s=400&u=aa341c6a67eb50e75465013c57c603b568dc9874&v=4",
+            "motto": "",
+            "portfolio": {
+                "gitHubUserName": "Thibaultfq",
+                "linkedInUserName": ""
+            },
+            "lecturer": true,
+            "dateOfBirth": 842572860
+        },
+        {
+            "firstname": "Bram",
+            "lastname": "Vandenbussche",
+            "email": "bram.vandenbussche@live.be",
+            "thumbnail": "https://avatars3.githubusercontent.com/u/71269925?s=460&u=63c1a9d61608cb83ad6b4924f5d57405c8362edd&v=4",
+            "motto": "",
+            "portfolio": {
+                "gitHubUserName": "pgm-bramvand2",
+                "linkedInUserName": ""
+            },
+            "lecturer": true,
+            "dateOfBirth": 627004860
+        },
+
+        {
+            "firstname": "Silke",
+            "lastname": "Van Meerbeek",
+            "email": "",
+            "thumbnail": "",
+            "motto": "",
+            "portfolio": {
+                "gitHubUserName": "",
+                "linkedInUserName": ""
+            },
+            "lecturer": true,
+            "dateOfBirth": 1
+        },
+
+        {
+            "firstname": "Dylan",
+            "lastname": "Garcia Calero",
+            "email": "",
+            "thumbnail": "",
+            "motto": "",
+            "portfolio": {
+                "gitHubUserName": "",
+                "linkedInUserName": ""
+            },
+            "lecturer": true,
+            "dateOfBirth": 1
+        },
+
+        {
+            "firstname": "",
+            "lastname": "",
+            "email": "",
+            "thumbnail": "",
+            "motto": "",
+            "portfolio": {
+                "gitHubUserName": "",
+                "linkedInUserName": ""
+            },
+            "lecturer": true,
+            "dateOfBirth": 1
+        }
+    ]
+    
+}
