@@ -25,7 +25,7 @@ function CovidApi () {
 };
 
 function UsersApi () {
-    this.USERS_API = '../app/static/data/pgm.json';
+    this.USERS_API = 'static/data/pgm.json';
     this.getUserData = async () => {
         try {
             const response = await fetch(this.USERS_API);
