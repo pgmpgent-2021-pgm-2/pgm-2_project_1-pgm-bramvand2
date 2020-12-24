@@ -1,114 +1,114 @@
 {
     "users" : [
         {
-            "firstname": "Philippe",
-            "lastname": "De Pauw - Waterschoot",
+            "firstName": "Philippe",
+            "lastName": "De Pauw - Waterschoot",
             "email": "drdynscript@gmail.com",
             "thumbnail": "https://avatars1.githubusercontent.com/u/390219?s=400&u=a5c092182f76efb479ab17d4302b47676c4a3faf&v=4",
-            "motto": "If it works, it works!",
+            "motto": "He that breaks a thing to find out what it is, has left the path of wisdom.",
             "portfolio": {
                 "gitHubUserName": "drdynscript",
-                "linkedInUserName": ""
+                "linkedInUserName": "philippe-de-pauw-waterschoot-5a5a336"
             },
             "lecturer": true,
-            "dateOfBirth": 472694460
+            "dateOfBirth": 472694460000
         },
 
         {
-            "firstname": "Michael",
-            "lastname": "Vanderpoorten",
+            "firstName": "Michael",
+            "lastName": "Vanderpoorten",
             "email": "michaelvanderpoorten@gmail.com",
             "thumbnail": "https://media-exp1.licdn.com/dms/image/C5603AQFcv3W19CwC-Q/profile-displayphoto-shrink_400_400/0/1601993689910?e=1614211200&v=beta&t=r3U0D0ODlEjm--mou-3i3PAMHLPxrOS0cTwlrr1sMZk",
-            "motto": "",
+            "motto": "Who knows? Have patience. Go where you must go, and hope!",
             "portfolio": {
                 "gitHubUserName": "yungpanda",
-                "linkedInUserName": ""
+                "linkedInUserName": "michaelvanderpoorten"
             },
             "lecturer": true,
-            "dateOfBirth": 649900860
+            "dateOfBirth": 649900860000
         },
 
         {
-            "firstname": "Mathieu",
-            "lastname": "Spillebeen",
+            "firstName": "Mathieu",
+            "lastName": "Spillebeen",
             "email": "mathieuspillebeen@gmail.com",
             "thumbnail": "https://avatars2.githubusercontent.com/u/2550222?s=400&u=5b63c573c2d813cd0e05551940ea273f94fb93f3&v=4",
-            "motto": "",
+            "motto": "The burned hand teaches best. After that advice about fire goes to the heart.",
             "portfolio": {
                 "gitHubUserName": "mathieuspil",
-                "linkedInUserName": ""
+                "linkedInUserName": "mathieuspil"
             },
             "lecturer": true,
-            "dateOfBirth": 673488060
+            "dateOfBirth": 673488060000
         },
 
         {
-            "firstname": "Thibault",
-            "lastname": "Fouquaert",
+            "firstName": "Thibault",
+            "lastName": "Fouquaert",
             "email": "thibaultfouquaert@gmail.com",
             "thumbnail": "https://avatars2.githubusercontent.com/u/10938848?s=400&u=aa341c6a67eb50e75465013c57c603b568dc9874&v=4",
-            "motto": "",
+            "motto": "You shall NOT pass !",
             "portfolio": {
                 "gitHubUserName": "Thibaultfq",
-                "linkedInUserName": ""
+                "linkedInUserName": "thibault-fouquaert-96a53b142"
             },
             "lecturer": true,
-            "dateOfBirth": 842572860
+            "dateOfBirth": 842572860000
         },
         {
-            "firstname": "Bram",
-            "lastname": "Vandenbussche",
+            "firstName": "Bram",
+            "lastName": "Vandenbussche",
             "email": "bram.vandenbussche@live.be",
             "thumbnail": "https://avatars3.githubusercontent.com/u/71269925?s=460&u=63c1a9d61608cb83ad6b4924f5d57405c8362edd&v=4",
-            "motto": "",
+            "motto": "Even the smallest person can change the course of history.",
             "portfolio": {
                 "gitHubUserName": "pgm-bramvand2",
-                "linkedInUserName": ""
+                "linkedInUserName": "bram-vandenbussche-0413751b6"
             },
-            "lecturer": true,
-            "dateOfBirth": 627004860
+            "lecturer": false,
+            "dateOfBirth": 627004860000
         },
 
         {
-            "firstname": "Silke",
-            "lastname": "Van Meerbeek",
-            "email": "",
-            "thumbnail": "",
-            "motto": "",
+            "firstName": "Silke",
+            "lastName": "Van Meerbeek",
+            "email": "silkevanmeerbeek@gmail.com",
+            "thumbnail": "https://avatars3.githubusercontent.com/u/71274682?s=460&u=f581f5a9d7a36c393e8474f11ec2e9c66d6da1b9&v=4",
+            "motto": "But what about second breakfast?",
             "portfolio": {
-                "gitHubUserName": "",
-                "linkedInUserName": ""
+                "gitHubUserName": "pgm-silkvanm1",
+                "linkedInUserName": "silke-van-meerbeek-1908"
             },
-            "lecturer": true,
-            "dateOfBirth": 1
+            "lecturer": false,
+            "dateOfBirth": 714215700000
         },
 
         {
-            "firstname": "Dylan",
-            "lastname": "Garcia Calero",
-            "email": "",
-            "thumbnail": "",
-            "motto": "",
+            "firstName": "Cagri",
+            "lastName": "Avci",
+            "email": "cagriavci@gmail.com",
+            "thumbnail": "https://media-exp1.licdn.com/dms/image/C4E03AQHq4Q-lpyKkkA/profile-displayphoto-shrink_400_400/0/1600086558164?e=1614211200&v=beta&t=Zt-m_gVASKXvt8eQHIUnHTBb9KfumyMF1lc1U8risok",
+            "motto": "All we have to decide is what to do with the time that is given us.",
             "portfolio": {
-                "gitHubUserName": "",
-                "linkedInUserName": ""
+                "gitHubUserName": "pgm-cagravci",
+                "linkedInUserName": "cagricemavci"
             },
-            "lecturer": true,
-            "dateOfBirth": 1
+            "lecturer": false,
+            "dateOfBirth": 657364500000
         },
 
         {
-            "firstname": "",
-            "lastname": "",
-            "email": "",
-            "thumbnail": "",
-            "motto": "",
+            "firstName": "Khomchan",
+            "lastName": "Phothichak",
+            "email": "khomchanphothichack@gmail.com",
+            "thumbnail": "https://avatars1.githubusercontent.com/u/72610909?s=460&v=4",
+            "motto": "Deeds will not be less valiant because they are unpraised.",
             "portfolio": {
-                "gitHubUserName": "",
-                "linkedInUserName": ""
+                "gitHubUserName": "dev_khomchan",
+                "linkedInUserName": "khomchan-phothichak-63644a1b7"
             },
-            "lecturer": true,
-            "dateOfBirth": 1
+            "lecturer": false,
+            "dateOfBirth": 788260500000
         }
     ]
     

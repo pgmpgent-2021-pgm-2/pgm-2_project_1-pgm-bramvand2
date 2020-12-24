@@ -7,16 +7,16 @@ ul {
     list-style: none;
 }
 
-#weather-display {
+#weather__container {
     display: flex;
     align-items: center;
 }
 
-.covid-display {
+.covid__container {
     display: flex;
     align-items: center;
 }
 
-.covid-display__icon {
+.covid__icon {
     width: 4rem;
 }
