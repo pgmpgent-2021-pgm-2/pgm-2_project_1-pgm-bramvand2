@@ -28,9 +28,8 @@
 
             updateWeatherContainer (weatherData) {
                 const weatherContainer =  `
-                                        <li>${weatherData.location.name}</li>
-                                        <li>${weatherData.current.temp_c} °</li>
-                                        <li><img src="${weatherData.current.condition.icon}" alt=" ${weatherData.current.condition.text}"></li>
+                                        <span>${weatherData.location.name} ${weatherData.current.temp_c} °</span>
+                                        <img src="${weatherData.current.condition.icon}" alt=" ${weatherData.current.condition.text}">
                                         `;
                 this.$weatherContainer.innerHTML = weatherContainer;
             },
@@ -60,12 +59,12 @@
                 const updatedUserContainer = sortedUsers.map((user) => {
                     console.log(user.gitHubUserName)
                     return `
-                            <li id="${user.portfolio.gitHubUserName}">
-                                <img src="${user.thumbnail}" alt="Photo of ${user.firstName} ${user.lastName}">
-                                <span>${user.firstName} ${user.lastName}</span>
+                            <li class="user__card" id="${user.portfolio.gitHubUserName}">
+                                <img class="user__card__image" src="${user.thumbnail}" alt="Photo of ${user.firstName} ${user.lastName}">
+                                <span class="user__card__name">${user.firstName} ${user.lastName}</span>
                             </li>
                                 `;
-                        });
+                        }).join('');
                                        
                 this.$usersContainer.innerHTML = updatedUserContainer;
 
@@ -82,11 +81,11 @@
 
             updateUserDetail (user) {                
                 const updatedUserDetail = `
-                                <img src="${user.thumbnail}" alt="Photo of ${user.firstName} ${user.lastName}">
-                                <h2>${user.firstName} ${user.lastName}</h2>
-                                <p>${user.motto}</p> 
+                                <img class="user__detail__image" src="${user.thumbnail}" alt="Photo of ${user.firstName} ${user.lastName}">
+                                <h2 class="user__detail__name">${user.firstName} ${user.lastName}</h2>
+                                <p class="user__detail__motto">${user.motto}</p> 
                                 <span>${user.lecturer ? 'Lecturer' : 'Student'}</span>
-                                <span>Age: ${this.calculateAge(user.dateOfBirth)}`;
+                                <span class="user__detail__age">Age: ${this.calculateAge(user.dateOfBirth)}`;
                 this.$userDetail.innerHTML = updatedUserDetail;
             },
 
@@ -129,13 +128,13 @@
                 const userFollowersData = await this.fetchUserFollowers(user)
                 const userFollowers = await userFollowersData.map((follower) => {
                     return `
-                            <li>
-                                <img src="${follower.avatar_url}" alt="Photo of ${follower.login}">
-                                <span>${follower.login}</span>
+                            <li class="follower">
+                                <img class="follower__image" src="${follower.avatar_url}" alt="Photo of ${follower.login}">
+                                <span class="follower__name">${follower.login}</span>
                             </li>
                             `;
                 
-                });
+                }).join('');
                 if(userFollowers.length > 0){
                     this.$userFollowersContainer.innerHTML = userFollowers;
                 } else {
@@ -158,12 +157,12 @@
                     console.log(searchData.items)
                     const searchedUsers = await searchData.items.map((user) => {
                         return `
-                            <li id="${user.login}">
-                                <img src="${user.avatar_url}" alt="Photo of ${user.login}">
-                                <span>${user.login}</span>
+                            <li id="${user.login}" class="user__card">
+                                <img class="user__card__image" src="${user.avatar_url}" alt="Photo of ${user.login}">
+                                <span class="user__card__name">${user.login}</span>
                             </li>
                             `;
-                    });
+                    }).join('');
 
                     this.$gitHubUsersContainer.innerHTML = searchedUsers;
                     console.log(searchedUsers)

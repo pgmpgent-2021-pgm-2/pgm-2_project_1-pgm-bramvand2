@@ -1,10 +1,95 @@
+.fakecolors {
+    color: #1C5251;
+    color: #2B8B65;
+    color: #6F9186;
+    color: #A8BDAE;
+    color: #908A73;
+}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 ul {
     list-style: none;
+}
+
+html {
+    
+}
+
+body {
+    font-family: "Orbitron";
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    color: #04555c;
+}
+
+header {
+    margin-top: 4rem;
+    border-radius: 2.5rem 2.5rem 0 0;
+    border-left:#04555c solid 0.05rem;
+    border-top:#04555c solid 0.05rem;
+    border-right:#04555c solid 0.05rem;
+    background-color: #209AAD;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    padding: 7rem;
+    border-left: #04555c  solid 0.05rem;
+    border-right: #04555c  solid 0.05rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.h-layout {
+    width: 80rem;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.header__left,
+.header__right {
+    display: flex;
+    align-items: center;
+}
+
+.header__right {
+    padding : 1.5rem;
+}
+
+.header__icon-wrapper {
+    display: inline-block;
+    padding: 1rem;
+    background-color:#04555c;
+    border-radius: 2.5rem 0 0 0;
+}
+
+.header__icon {
+    width: 5rem;
+    height: 5rem;
+    fill: #fff;
+}
+
+.header__title {
+    margin-left: 1rem;
+    width: 20rem;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
 }
 
 #weather__container {
@@ -19,4 +104,163 @@ ul {
 
 .covid__icon {
     width: 4rem;
+    margin-left: 0.5rem;
+}
+
+
+.users-tab {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+}
+
+.users-tab__button {
+    cursor: pointer;
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    z-index: 0;
+    padding: 0.5rem 1rem 1rem 1rem;
+    outline: none;
+    border: 0.2rem solid#04555c;
+    border-radius: 0.8rem 0.8rem 0 0;
+    background-color:#04555c;
+    color: #fff;
+    font-family: "Orbitron";
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.users-tab__button:hover {
+    background-color: #fff;
+    color: #000;
+    top: -2.5rem;
+}
+
+.github.users-tab__button {
+    left: 5rem;
+}
+
+.users-list {
+    position: relative;
+    z-index: 5;
+    padding: 1.5rem 1rem;       
+    background-color:  #209AAD;
+}
+
+.user__card {
+    cursor: pointer;
+    width: 100%;
+    margin: 0.5rem 0; 
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    color:#747474;
+    transition: all 0.2s ease;
+}
+
+.user__card:hover {
+    background-color:#04555c;
+    color: #fff;    
+}
+
+.user__card__image {
+    width: 5rem;
+    margin-right: 1rem;
+    transition: all 0.2s ease;
+}
+
+.user__card:hover .user__card__image {
+    transform: scale(1.1);    
+}
+
+.user__card__name {
+    
+}
+
+.detail-tab {
+    width: 65%;
+    background-color: #cbe4e6;
+    border-radius: 0.8rem;
+}
+
+.detail-tab__section {
+    background-color: #209AAD;
+    border-radius: 0.8rem;
+    padding: 1rem;
+}
+
+#user__detail {
+    position: relative;
+    width: 100%;
+    padding-bottom: 50%;
+    margin-bottom: 5rem;
+}
+
+.user__detail__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.user__detail__name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 0.5rem;
+    background-color: #04555c;
+    color:  #fff;
+    font-size: 2rem;
+}
+
+.user__detail__age {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    padding: 0 0.5rem;
+    background-color:#209AAD;
+    color:  #fff;
+    font-size: 2rem;
+}
+
+.user__detail__motto {
+    position: absolute;
+    bottom: -2rem;
+    right: 0;
+    width: 80%;
+    padding: 0 0.5rem;
+    background-color:  #fff;
+    color:#209AAD;
+    font-size: 1.5rem;
+}
+
+#followers__container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.follower {
+    margin: 0.5rem;
+    position: relative;
+}
+
+.follower__image {
+    width: 10rem;
+}
+
+.follower__name {
+    position: absolute;
+    left: 0;
+    padding: 0.2rem;
+    background-color: #fff;
+    font-size: 0.8rem;
+}
+
+#repositories__container {
+
 }
