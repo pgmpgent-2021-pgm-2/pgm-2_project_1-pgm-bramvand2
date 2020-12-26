@@ -31,32 +31,45 @@
     </header>
     <main class="h-layout">
         <div class="users-tab">
-            <button class="users-tab__button">pgm</button>
-            <button class="github users-tab__button">github</button>
+            <button class="users-tab__button" id="pgm-list__button">pgm</button>
+            <button class="github users-tab__button" id="github-list__button">github</button>
 
             <ul id="users__container" class="users-list"></ul>
-            <div class="github-users__container hidden">               
+            <div id="github-users__wrapper" class="hidden">
+                             
                 <ul id="github-users__container" class="users-list">
-                    <li>
-                        <form>
+                    <li class="github-users__search">
+                         <form>
                             <input type="search" id="search-bar" name="search-bar">
                             <label for="search-bar">search</label>
-                        </form>
+                        </form> 
                     </li>
                 </ul>
             </div>
         </div>
         
         <div class="detail-tab">
-            <div id="user__detail" class="detail-tab__section"></div>            
-            <ul id="repositories__container"></ul>
-            <ul id="followers__container"></ul>
+            <div id="user__detail" class="detail-tab__section"></div>
+            <div class="detail-tab__section">
+                <h2 class="detail-tab__title">Repositories</h2>
+                <ul id="repositories__container"></ul>
+            </div>            
+            
+            <div class="detail-tab__section">
+                <h2 class="detail-tab__title">Followers</h2>
+                <ul id="followers__container"></ul>
+            </div>
+            
         </div>
         
         
 
         
     </main>
+
+    <footer class="h-layout">
+        <div class="footer__inner"></div>
+    </footer>
 
    
     

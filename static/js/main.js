@@ -4,9 +4,8 @@
             initialize() {
                 this.cacheElements();
                 this.fetchWeatherData();
-                this.fetchCovidData();
-                this.fetchUsersData();
-                this.updateGitHubUsersContainer();
+                this.onClickShowPgmList();
+                this.onClickShowGitHubList();               
             },
 
             cacheElements () {  
@@ -17,13 +16,18 @@
                 this.$userDetail = document.querySelector('#user__detail');
                 this.$userReposContainer = document.querySelector('#repositories__container');
                 this.$userFollowersContainer = document.querySelector('#followers__container');
-                this.$gitHubUsersContainer =  document.querySelector('#github-users__container')
+                this.$gitHubUsersContainer =  document.querySelector('#github-users__container');
+                this.$gitHubUsersWrapper = document.querySelector('#github-users__wrapper')
+                this.$pgmListButton = document.querySelector('#pgm-list__button');
+                this.$gitHubListButton = document.querySelector('#github-list__button');
+
             },
 
             async fetchWeatherData () {
                const weatherApi = new WeatherApi();
                const weatherData = await weatherApi.getWeatherData();
-               this.updateWeatherContainer(weatherData)
+               this.updateWeatherContainer(weatherData);
+               this.fetchCovidData();
             },
 
             updateWeatherContainer (weatherData) {
@@ -38,10 +42,10 @@
                 const covidApi = new CovidApi();
                 const covidData = await covidApi.getCovidData();
                 this.updateCovidContainer(covidData);
+                this.fetchUsersData();
             },
 
             updateCovidContainer(data) {
-                console.log(data.records[0].fields.cases)
                 this.$covidCasesContainer.innerHTML = `${data.records[0].fields.cases}`;
             },
 
@@ -49,6 +53,7 @@
                 const usersApi = new UsersApi();
                 const usersData = await usersApi.getUserData();
                 this.updateUserContainer(usersData);
+                this.updateGitHubUsersContainer();
             },
 
             updateUserContainer(data){
@@ -81,11 +86,13 @@
 
             updateUserDetail (user) {                
                 const updatedUserDetail = `
-                                <img class="user__detail__image" src="${user.thumbnail}" alt="Photo of ${user.firstName} ${user.lastName}">
-                                <h2 class="user__detail__name">${user.firstName} ${user.lastName}</h2>
-                                <p class="user__detail__motto">${user.motto}</p> 
-                                <span>${user.lecturer ? 'Lecturer' : 'Student'}</span>
-                                <span class="user__detail__age">Age: ${this.calculateAge(user.dateOfBirth)}`;
+                                <a href="https://github.com/${user.portfolio.gitHubUserName}" target="_blank">
+                                    <img class="user__detail__image" src="${user.thumbnail}" alt="Photo of ${user.firstName} ${user.lastName}">
+                                    <h2 class="user__detail__name">${user.firstName} ${user.lastName}</h2>
+                                    <p class="user__detail__motto">${user.motto}</p> 
+                                    <span>${user.lecturer ? 'Lecturer' : 'Student'}</span>
+                                    <span class="user__detail__age">Age: ${this.calculateAge(user.dateOfBirth)}</span>
+                                </a>`;
                 this.$userDetail.innerHTML = updatedUserDetail;
             },
 
@@ -107,13 +114,31 @@
                 const userReposData = await this.fetchUserRepos(user);
                 console.log(userReposData)
                 const userRepos = await userReposData.map((repo) => {
-                    console.log(repo)
-                    return `<li>${repo.name}</li>`
+                    return  `
+                            <li>
+                            <a href="${repo.html_url}" target="_blank">
+                                    <ul class="repository">
+                                        <li><h3 class="repository__name">${repo.name}</h3></li>
+                                        <li><p class="repository__description">${repo.description !== null ? repo.description : 'No description'}</p></li>
+                                        <li><ul class="repository__info">
+                                                <li>${repo.size} KB</li>
+                                                <li><img src="static/media/svg/git-branch.svg" alt="Icon git-branch">${repo.default_branch}</li>
+                                                <li><img src="static/media/svg/law.svg" alt="Icon git-branch">${repo.license !== null ? repo.license.name : `No License`}</li>
+                                                <li><img src="static/media/svg/shield.svg" alt="Icon git-branch">${repo.private ? `Private` : `Public`}</li>
+                                                <li><img src="static/media/svg/repo-forked.svg" alt="Icon git-branch">${repo.fork}</li>
+                                                <li><img src="static/media/svg/issue-opened.svg" alt="Icon git-branch">${repo.open_issues}</li>
+                                                <li><img src="static/media/svg/eye.svg" alt="Icon git-branch">${repo.watchers}</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </a>
+                            </li>
+                            `
                 }).join('')
                 if(userRepos.length > 0){
                     this.$userReposContainer.innerHTML = userRepos;
                 } else {
-                    this.$userReposContainer.innerHTML = `${user} has no repositories.`;
+                    this.$userReposContainer.innerHTML = `<p>${user} has no repositories.</p>`;
                 }
                 
             },
@@ -129,8 +154,10 @@
                 const userFollowers = await userFollowersData.map((follower) => {
                     return `
                             <li class="follower">
-                                <img class="follower__image" src="${follower.avatar_url}" alt="Photo of ${follower.login}">
-                                <span class="follower__name">${follower.login}</span>
+                                <a  href="${follower.html_url}" target="_blank">
+                                    <img class="follower__image" src="${follower.avatar_url}" alt="Photo of ${follower.login}">
+                                    <span class="follower__name">${follower.login}</span>
+                                </a>
                             </li>
                             `;
                 
@@ -138,7 +165,7 @@
                 if(userFollowers.length > 0){
                     this.$userFollowersContainer.innerHTML = userFollowers;
                 } else {
-                    this.$userFollowersContainer.innerHTML = `${user} has no followers.`;
+                    this.$userFollowersContainer.innerHTML = `<p>${user} has no followers.</p>`;
                 }
                 
             },
@@ -164,7 +191,7 @@
                             `;
                     }).join('');
 
-                    this.$gitHubUsersContainer.innerHTML = searchedUsers;
+                    this.$gitHubUsersContainer.innerHTML += searchedUsers;
                     console.log(searchedUsers)
                     searchData.items.forEach(user => {
                         const $user = document.querySelector(`#${user.login}`);
@@ -180,12 +207,32 @@
 
             updateGitHubUserDetail (user) {                
                 const updatedUserDetail = `
-                                        <img src="${user.avatar_url}" alt="Photo of ${user.login}">
-                                        <h2>${user.login}</h2>
+                                        <a href="${user.html_url}" target="_blank">
+                                            <img class="user__detail__image" src="${user.avatar_url}" alt="Photo of ${user.login}">
+                                            <h2 class="user__detail__name">${user.login}</h2>
+                                        </a>
                                         `
                 this.$userDetail.innerHTML = updatedUserDetail;
             },
 
+            onClickShowPgmList () {
+                this.$pgmListButton.addEventListener('click', () => {
+                    if(this.$usersContainer.classList.contains('hidden')){
+                        this.$usersContainer.classList.remove('hidden');
+                        this.$gitHubUsersWrapper.classList.add('hidden');                    
+                    };                    
+                })
+            },
+
+            onClickShowGitHubList () {
+                this.$gitHubListButton.addEventListener('click', () => {
+                    if(this.$gitHubUsersWrapper.classList.contains('hidden')){
+                        this.$gitHubUsersWrapper.classList.remove('hidden');
+                        this.$usersContainer.classList.add('hidden');
+                    
+                    };                    
+                })
+            },
             
     }
     app.initialize();

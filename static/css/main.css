@@ -12,15 +12,21 @@
     padding: 0;
 }
 
+a {
+    color: none;
+    text-decoration: none;
+}
+
 ul {
     list-style: none;
 }
 
 html {
-    
+    word-break: break-word;
 }
 
 body {
+    background-color: #e9f9fa;
     font-family: "Orbitron";
     font-size: 1rem;
     font-weight: 400;
@@ -35,6 +41,7 @@ header {
     border-left:#04555c solid 0.05rem;
     border-top:#04555c solid 0.05rem;
     border-right:#04555c solid 0.05rem;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
     background-color: #209AAD;
     display: flex;
     justify-content: space-between;
@@ -42,9 +49,11 @@ header {
 }
 
 main {
-    padding: 7rem;
+    /* padding: 5rem 0; */
+    background-color: #fefefe;
     border-left: #04555c  solid 0.05rem;
     border-right: #04555c  solid 0.05rem;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
     display: flex;
     justify-content: space-between;
 }
@@ -67,7 +76,8 @@ main {
 }
 
 .header__right {
-    padding : 1.5rem;
+    margin-right: 7rem;
+    color: #fff;
 }
 
 .header__icon-wrapper {
@@ -93,6 +103,7 @@ main {
 }
 
 #weather__container {
+    margin-right: 1.5rem;
     display: flex;
     align-items: center;
 }
@@ -118,7 +129,7 @@ main {
     cursor: pointer;
     position: absolute;
     top: -2rem;
-    left: 0;
+    right: -4rem;
     z-index: 0;
     padding: 0.5rem 1rem 1rem 1rem;
     outline: none;
@@ -129,30 +140,41 @@ main {
     font-family: "Orbitron";
     font-size: 1rem;
     text-transform: uppercase;
+    transform-origin: bottom left;
+    transform: rotate(90deg);
     transition: all 0.2s ease;
 }
 
 .users-tab__button:hover {
     background-color: #fff;
     color: #000;
-    top: -2.5rem;
+    right: -4.5rem;
 }
 
 .github.users-tab__button {
-    left: 5rem;
+    top: 3.5rem;
+    right: -6rem;
+}
+
+.github.users-tab__button:hover {
+    right: -6.5rem;
 }
 
 .users-list {
     position: relative;
     z-index: 5;
-    padding: 1.5rem 1rem;       
-    background-color:  #209AAD;
+    /* padding: 1.5rem 1rem;        */
+    background-color: #04555c;
+    height: 47.5rem;
+    overflow-y: auto;
+    
 }
 
 .user__card {
     cursor: pointer;
-    width: 100%;
-    margin: 0.5rem 0; 
+    width: 90%;
+    margin: 0.5rem auto;
+    /* padding: 0 1rem;  */
     display: flex;
     align-items: center;
     background-color: #fff;
@@ -161,7 +183,7 @@ main {
 }
 
 .user__card:hover {
-    background-color:#04555c;
+    background-color: #209AAD;
     color: #fff;    
 }
 
@@ -175,27 +197,53 @@ main {
     transform: scale(1.1);    
 }
 
-.user__card__name {
-    
+
+
+.github-users__search {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 2rem 1rem;
+    background-color: #04555c;
 }
+
+.github-users__search label {
+    color: #fff;
+}
+
+.github-users__search input {
+    height: 2rem;
+    width: 15rem;
+}
+
+
 
 .detail-tab {
     width: 65%;
-    background-color: #cbe4e6;
-    border-radius: 0.8rem;
+    max-height: 47.5rem;
+    overflow-y: auto;   
 }
 
 .detail-tab__section {
     background-color: #209AAD;
-    border-radius: 0.8rem;
     padding: 1rem;
+    margin-bottom: 6rem;
+}
+
+.detail-tab__title {
+    font-size: 2rem;
+    color: #fff;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 #user__detail {
     position: relative;
     width: 100%;
-    padding-bottom: 50%;
-    margin-bottom: 5rem;
+    padding-bottom: 65%;
+    overflow: hidden;   
 }
 
 .user__detail__image {
@@ -205,6 +253,11 @@ main {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    transition: all 0.2s ease;
+}
+
+#user__detail:hover .user__detail__image {
+    transform: scale(1.05);
 }
 
 .user__detail__name {
@@ -229,11 +282,11 @@ main {
 
 .user__detail__motto {
     position: absolute;
-    bottom: -2rem;
+    bottom: 0rem;
     right: 0;
     width: 80%;
     padding: 0 0.5rem;
-    background-color:  #fff;
+    background-color:   #e9f9facc;
     color:#209AAD;
     font-size: 1.5rem;
 }
@@ -244,13 +297,20 @@ main {
     flex-wrap: wrap;
 }
 
+#followers__container p{
+    background-color: #fff;
+    padding: 1.5rem 1rem 
+}
+
 .follower {
     margin: 0.5rem;
-    position: relative;
+    width: 30.7%;
+    position: relative; 
 }
 
 .follower__image {
-    width: 10rem;
+    background-color: #fff;
+    width: 100%;
 }
 
 .follower__name {
@@ -258,9 +318,59 @@ main {
     left: 0;
     padding: 0.2rem;
     background-color: #fff;
+    color:#04555c;
     font-size: 0.8rem;
 }
 
-#repositories__container {
+#repositories__container p{
+    background-color: #fff;
+    padding: 1.5rem 1rem 
+}
 
+.repository {
+    margin-bottom: 1.5rem;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+.repository:hover {
+    transform: scale(1.02);
+}
+
+.repository__name {
+    padding: 0 1rem;
+    background-color: #04555c;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.repository__description {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #04555c;    
+    font-size: 1rem;
+}
+
+.repository__info {
+    padding: 0 1rem;
+    background-color: #e9f9fa;
+    color:#04555c;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.repository__info img {
+    margin-right: 0.3rem;
+}
+
+.footer__inner {
+    height: 5rem;
+    border-radius:0 0 2.5rem 2.5rem;
+    border-left:#04555c solid 0.05rem;
+    border-bottom:#04555c solid 0.05rem;
+    border-right:#04555c solid 0.05rem;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+    background-color:#04555c;
 }
