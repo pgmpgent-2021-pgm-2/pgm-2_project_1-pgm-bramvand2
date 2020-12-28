@@ -5,7 +5,8 @@
                 this.cacheElements();
                 this.fetchWeatherData();
                 this.onClickShowPgmList();
-                this.onClickShowGitHubList();               
+                this.onClickShowGitHubList();
+                this.onClickToggleDarkmode();               
             },
 
             cacheElements () {  
@@ -20,6 +21,7 @@
                 this.$gitHubUsersWrapper = document.querySelector('#github-users__wrapper')
                 this.$pgmListButton = document.querySelector('#pgm-list__button');
                 this.$gitHubListButton = document.querySelector('#github-list__button');
+                this.$modeSelectorButton = document.querySelector('#mode-selector__button')
 
             },
 
@@ -177,31 +179,33 @@
             },
             
             updateGitHubUsersContainer () {
-                this.$searchBar.addEventListener('input', async () => {
-                    console.log(this.$searchBar.value);
+                this.$searchBar.addEventListener('keyup', async (event) => {
+                    if(event.keyCode === 13){
+                        event.preventDefault();
+                        console.log(this.$searchBar.value);                   
+                        const searchData = await this.fetchGitHubUsers(this.$searchBar.value);
+                        console.log(searchData.items)
+                        const searchedUsers = await searchData.items.map((user) => {
+                            return `
+                                <li id="${user.login}" class="user__card">
+                                    <img class="user__card__image" src="${user.avatar_url}" alt="Photo of ${user.login}">
+                                    <span class="user__card__name">${user.login}</span>
+                                </li>
+                                `;
+                        }).join('');
 
-                    const searchData = await this.fetchGitHubUsers(this.$searchBar.value);
-                    console.log(searchData.items)
-                    const searchedUsers = await searchData.items.map((user) => {
-                        return `
-                            <li id="${user.login}" class="user__card">
-                                <img class="user__card__image" src="${user.avatar_url}" alt="Photo of ${user.login}">
-                                <span class="user__card__name">${user.login}</span>
-                            </li>
-                            `;
-                    }).join('');
-
-                    this.$gitHubUsersContainer.innerHTML += searchedUsers;
-                    console.log(searchedUsers)
-                    searchData.items.forEach(user => {
-                        const $user = document.querySelector(`#${user.login}`);
-                        console.log($user)
-                        $user.addEventListener('click', () => {
-                            this.updateGitHubUserDetail(user);
-                            this.updateUserRepos(user.login);
-                            this.updateUserFollowers(user.login);
-                        } )
-                    });        
+                        this.$gitHubUsersContainer.innerHTML += searchedUsers;
+                        console.log(searchedUsers)
+                        searchData.items.forEach(user => {
+                            const $user = document.querySelector(`#${user.login}`);
+                            console.log($user)
+                            $user.addEventListener('click', () => {
+                                this.updateGitHubUserDetail(user);
+                                this.updateUserRepos(user.login);
+                                this.updateUserFollowers(user.login);
+                            } )
+                        });
+                    }        
                 })
             },
 
@@ -231,6 +235,13 @@
                         this.$usersContainer.classList.add('hidden');
                     
                     };                    
+                })
+            },
+
+            onClickToggleDarkmode (){
+                this.$modeSelectorButton.addEventListener('click', ()  => {
+                    document.body.classList.toggle('dark');
+                    this.$modeSelectorButton.classList.toggle('selected');
                 })
             },
             

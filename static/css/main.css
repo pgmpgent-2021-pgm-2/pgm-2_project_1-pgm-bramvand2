@@ -6,6 +6,19 @@
     color: #908A73;
 }
 
+:root {
+    --lightmode-dark-blue :  #04555c;
+    --lightmode-light-blue:  #209AAD;
+    --lightmode-light-grey:  #fefefe;
+    --darkmode-dark-blue: #03002e;
+    --darkmode-light-blue: #090088;
+    --darkmode-grey:  #616161;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,37 +39,52 @@ html {
 }
 
 body {
-    background-color: #e9f9fa;
     font-family: "Orbitron";
     font-size: 1rem;
     font-weight: 400;
     font-style: normal;
     line-height: 1.5;
-    color: #04555c;
+    color:  var(--lightmode-dark-blue);
+}
+
+body.dark {
+    color: #fff;
+    background-color: #000;
 }
 
 header {
-    margin-top: 4rem;
+    margin-top: 1rem;
     border-radius: 2.5rem 2.5rem 0 0;
-    border-left:#04555c solid 0.05rem;
-    border-top:#04555c solid 0.05rem;
-    border-right:#04555c solid 0.05rem;
+    border-left: var(--lightmode-dark-blue) solid 0.05rem;
+    border-top: var(--lightmode-dark-blue) solid 0.05rem;
+    border-right: var(--lightmode-dark-blue) solid 0.05rem;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
-    background-color: #209AAD;
+    background-color: var(--lightmode-light-blue);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.dark header {
+    background-color: var(--darkmode-light-blue);
+    border: none;
+}
+
 main {
     /* padding: 5rem 0; */
     background-color: #fefefe;
-    border-left: #04555c  solid 0.05rem;
-    border-right: #04555c  solid 0.05rem;
+    border-left:  var(--lightmode-dark-blue)  solid 0.05rem;
+    border-right:  var(--lightmode-dark-blue)  solid 0.05rem;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
     display: flex;
     justify-content: space-between;
 }
+
+.dark main {
+    background-color: var(--darkmode-grey);
+    border: none;
+}
+
 
 .h-layout {
     width: 80rem;
@@ -83,8 +111,12 @@ main {
 .header__icon-wrapper {
     display: inline-block;
     padding: 1rem;
-    background-color:#04555c;
+    background-color: var(--lightmode-dark-blue);
     border-radius: 2.5rem 0 0 0;
+}
+
+.dark .header__icon-wrapper {
+    background-color: var(--darkmode-dark-blue);
 }
 
 .header__icon {
@@ -109,6 +141,7 @@ main {
 }
 
 .covid__container {
+    margin-right: 1.5rem;
     display: flex;
     align-items: center;
 }
@@ -133,9 +166,9 @@ main {
     z-index: 0;
     padding: 0.5rem 1rem 1rem 1rem;
     outline: none;
-    border: 0.2rem solid#04555c;
+    border: 0.2rem solid var(--lightmode-dark-blue);
     border-radius: 0.8rem 0.8rem 0 0;
-    background-color:#04555c;
+    background-color: var(--lightmode-dark-blue);
     color: #fff;
     font-family: "Orbitron";
     font-size: 1rem;
@@ -143,6 +176,11 @@ main {
     transform-origin: bottom left;
     transform: rotate(90deg);
     transition: all 0.2s ease;
+}
+
+.dark .users-tab__button {
+    border-color: var(--darkmode-dark-blue);
+    background-color: var(--darkmode-dark-blue);
 }
 
 .users-tab__button:hover {
@@ -164,10 +202,13 @@ main {
     position: relative;
     z-index: 5;
     /* padding: 1.5rem 1rem;        */
-    background-color: #04555c;
+    background-color:  var(--lightmode-dark-blue);
     height: 47.5rem;
-    overflow-y: auto;
-    
+    overflow-y: auto;    
+}
+
+.dark .users-list {
+    background-color: var(--darkmode-dark-blue);
 }
 
 .user__card {
@@ -182,9 +223,18 @@ main {
     transition: all 0.2s ease;
 }
 
+.dark .user__card {
+    background-color: var(--darkmode-grey);
+    color: #fff;
+}
+
 .user__card:hover {
-    background-color: #209AAD;
+    background-color: var(--lightmode-light-blue);
     color: #fff;    
+}
+
+.dark .user__card:hover {
+    background-color: var(--darkmode-light-blue);
 }
 
 .user__card__image {
@@ -206,16 +256,25 @@ main {
     z-index: 10;
     width: 100%;
     padding: 2rem 1rem;
-    background-color: #04555c;
+    background-color:  var(--lightmode-dark-blue);
+}
+
+.dark .github-users__search{
+    background-color: var(--darkmode-dark-blue);
 }
 
 .github-users__search label {
-    color: #fff;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+    color: #fff;    
 }
 
 .github-users__search input {
-    height: 2rem;
+    padding: 0 0.5rem;
+    height: 3rem;
     width: 15rem;
+    outline: none;
+    font-size: 1rem;
 }
 
 
@@ -227,9 +286,21 @@ main {
 }
 
 .detail-tab__section {
-    background-color: #209AAD;
+    background-color: var(--lightmode-light-blue);
     padding: 1rem;
     margin-bottom: 6rem;
+}
+
+.dark .detail-tab__section {
+    background-color: var(--darkmode-light-blue);
+}
+
+.dark .detail-tab__section:first-child {
+    background-color: var(--darkmode-dark-blue);
+}
+
+.detail-tab__section:first-child {
+    background-color:  var(--lightmode-dark-blue);
 }
 
 .detail-tab__title {
@@ -265,9 +336,13 @@ main {
     top: 0;
     left: 0;
     padding: 0 0.5rem;
-    background-color: #04555c;
+    background-color:  var(--lightmode-dark-blue);
     color:  #fff;
     font-size: 2rem;
+}
+
+.dark .user__detail__name {
+    background-color: var(--darkmode-dark-blue);
 }
 
 .user__detail__age {
@@ -275,9 +350,13 @@ main {
     top: 3rem;
     left: 0;
     padding: 0 0.5rem;
-    background-color:#209AAD;
+    background-color: var(--lightmode-light-blue);
     color:  #fff;
     font-size: 2rem;
+}
+
+.dark .user__detail__age {
+    background-color: var(--darkmode-light-blue);
 }
 
 .user__detail__motto {
@@ -287,8 +366,12 @@ main {
     width: 80%;
     padding: 0 0.5rem;
     background-color:   #e9f9facc;
-    color:#209AAD;
+    color: var(--lightmode-light-blue);
     font-size: 1.5rem;
+}
+
+.dark .user__detail__motto {
+    color: var(--darkmode-light-blue);
 }
 
 #followers__container {
@@ -318,7 +401,7 @@ main {
     left: 0;
     padding: 0.2rem;
     background-color: #fff;
-    color:#04555c;
+    color: var(--lightmode-dark-blue);
     font-size: 0.8rem;
 }
 
@@ -339,9 +422,13 @@ main {
 
 .repository__name {
     padding: 0 1rem;
-    background-color: #04555c;
+    background-color: var(--lightmode-dark-blue);
     font-size: 1.5rem;
     color: #fff;
+}
+
+.dark .repository__name {
+    background-color: var(--darkmode-dark-blue);
 }
 
 .repository__description {
@@ -367,10 +454,46 @@ main {
 
 .footer__inner {
     height: 5rem;
+    padding: 0.5rem 2rem;
     border-radius:0 0 2.5rem 2.5rem;
     border-left:#04555c solid 0.05rem;
     border-bottom:#04555c solid 0.05rem;
     border-right:#04555c solid 0.05rem;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
     background-color:#04555c;
+}
+
+.dark .footer__inner {
+    background-color: var(--darkmode-dark-blue);
+    border: none;
+}
+
+.mode-selector {
+    color: #fff;
+}
+
+.mode-selector__container {
+    cursor: pointer;
+    position: relative;
+    background-color: #c9c9c9;
+    border: var(--darkmode-grey) solid 0.1rem;
+    border-radius: 1rem;
+    outline: none;
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.circle {
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--darkmode-grey);
+    transition: all 0.2s ease;
+}
+
+.selected .circle {
+    left: 1.6rem;
 }

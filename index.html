@@ -27,6 +27,7 @@
         
                 </div>
             </div>
+            
         </div>
     </header>
     <main class="h-layout">
@@ -39,10 +40,9 @@
                              
                 <ul id="github-users__container" class="users-list">
                     <li class="github-users__search">
-                         <form>
-                            <input type="search" id="search-bar" name="search-bar">
-                            <label for="search-bar">search</label>
-                        </form> 
+                        <label for="search-bar">search</label>                             
+                        <input type="text" id="search-bar" name="search-bar" placeholder="Search gitHub users...">
+                                            
                     </li>
                 </ul>
             </div>
@@ -68,7 +68,16 @@
     </main>
 
     <footer class="h-layout">
-        <div class="footer__inner"></div>
+        <div class="footer__inner">
+            <ul class="mode-selector">
+                <li>Mode</li>
+                <li>
+                    <button id ="mode-selector__button" class="mode-selector__container">
+                        <div class="circle"></div>
+                    </button>
+                </li>
+            </ul>
+        </div>
     </footer>
 
    
