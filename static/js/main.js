@@ -126,12 +126,12 @@
                                         <li><p class="repository__description">${repo.description !== null ? repo.description : 'No description'}</p></li>
                                         <li><ul class="repository__info">
                                                 <li>${repo.size} KB</li>
-                                                <li><img src="../static/media/svg/git-branch.svg" alt="Icon git-branch">${repo.default_branch}</li>
-                                                <li><img src="../static/media/svg/law.svg" alt="Icon git-branch">${repo.license !== null ? repo.license.name : `No License`}</li>
-                                                <li><img src="../static/media/svg/shield.svg" alt="Icon git-branch">${repo.private ? `Private` : `Public`}</li>
-                                                <li><img src="../static/media/svg/repo-forked.svg" alt="Icon git-branch">${repo.fork}</li>
-                                                <li><img src="../static/media/svg/issue-opened.svg" alt="Icon git-branch">${repo.open_issues}</li>
-                                                <li><img src="../static/media/svg/eye.svg" alt="Icon git-branch">${repo.watchers}</li>
+                                                <li><img src="../media/svg/git-branch.svg" alt="Icon git-branch">${repo.default_branch}</li>
+                                                <li><img src="../media/svg/law.svg" alt="Icon git-branch">${repo.license !== null ? repo.license.name : `No License`}</li>
+                                                <li><img src="../media/svg/shield.svg" alt="Icon git-branch">${repo.private ? `Private` : `Public`}</li>
+                                                <li><img src="../media/svg/repo-forked.svg" alt="Icon git-branch">${repo.fork}</li>
+                                                <li><img src="../media/svg/issue-opened.svg" alt="Icon git-branch">${repo.open_issues}</li>
+                                                <li><img src="../media/svg/eye.svg" alt="Icon git-branch">${repo.watchers}</li>
                                             </ul>
                                         </li>
                                     </ul>
