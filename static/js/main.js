@@ -6,7 +6,10 @@
                 this.fetchWeatherData();
                 this.onClickShowPgmList();
                 this.onClickShowGitHubList();
-                this.onClickToggleDarkmode();               
+                this.onClickToggleDarkmode();
+                setInterval(() => this.updateDigitalClock(), 1000);
+                
+                               
             },
 
             cacheElements () {  
@@ -22,6 +25,8 @@
                 this.$pgmListButton = document.querySelector('#pgm-list__button');
                 this.$gitHubListButton = document.querySelector('#github-list__button');
                 this.$modeSelectorButton = document.querySelector('#mode-selector__button')
+                this.$ditigalClock = document.querySelector('#digital-clock');
+                this.$utcSelector = document.querySelector('#utc-selector')
 
             },
 
@@ -64,7 +69,6 @@
                 });
 
                 const updatedUserContainer = sortedUsers.map((user) => {
-                    console.log(user.gitHubUserName)
                     return `
                             <li class="user__card" id="${user.portfolio.gitHubUserName}">
                                 <img class="user__card__image" src="${user.thumbnail}" alt="Photo of ${user.firstName} ${user.lastName}">
@@ -114,7 +118,6 @@
 
             async updateUserRepos (user) {
                 const userReposData = await this.fetchUserRepos(user);
-                console.log(userReposData)
                 const userRepos = await userReposData.map((repo) => {
                     return  `
                             <li>
@@ -181,10 +184,8 @@
             updateGitHubUsersContainer () {
                 this.$searchBar.addEventListener('keyup', async (event) => {
                     if(event.keyCode === 13){
-                        event.preventDefault();
-                        console.log(this.$searchBar.value);                   
+                        event.preventDefault();                 
                         const searchData = await this.fetchGitHubUsers(this.$searchBar.value);
-                        console.log(searchData.items)
                         const searchedUsers = await searchData.items.map((user) => {
                             return `
                                 <li id="${user.login}" class="user__card">
@@ -195,7 +196,6 @@
                         }).join('');
 
                         this.$gitHubUsersContainer.innerHTML += searchedUsers;
-                        console.log(searchedUsers)
                         searchData.items.forEach(user => {
                             const $user = document.querySelector(`#${user.login}`);
                             console.log($user)
@@ -238,12 +238,19 @@
                 })
             },
 
-            onClickToggleDarkmode (){
+            onClickToggleDarkmode () {
                 this.$modeSelectorButton.addEventListener('click', ()  => {
                     document.body.classList.toggle('dark');
                     this.$modeSelectorButton.classList.toggle('selected');
                 })
             },
+
+            updateDigitalClock () {
+                const utc = parseInt(this.$utcSelector.value, 10);
+                const digitalClock = new DigitalClock ();
+                const currentTime = digitalClock.startTime(utc);
+                this.$ditigalClock.innerHTML = currentTime;               
+            }
             
     }
     app.initialize();

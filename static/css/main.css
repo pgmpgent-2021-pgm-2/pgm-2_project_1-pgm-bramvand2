@@ -461,6 +461,10 @@ main {
     border-right:#04555c solid 0.05rem;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
     background-color:#04555c;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .dark .footer__inner {
@@ -496,4 +500,9 @@ main {
 
 .selected .circle {
     left: 1.6rem;
+}
+
+.digital-clock input {
+    width: 2.5rem;
+    outline: none;
 }

@@ -1,5 +1,5 @@
 function WeatherApi () {
-    this.WEATHER_API = `http://api.weatherapi.com/v1/current.json?key=c9d40b6d9988427b969105456202312&q=%24Ghent`;
+    this.WEATHER_API = `https://api.weatherapi.com/v1/current.json?key=c9d40b6d9988427b969105456202312&q=%24Ghent`;
     this.getWeatherData = async () => {
         try {
             const response = await fetch(this.WEATHER_API);
@@ -70,4 +70,32 @@ function GitHubApi () {
             console.error(error)
         }
     };
+};
+
+function DigitalClock () {
+     this.startTime = (utcZone) => {
+        var today = new Date();
+        var h = today.getUTCHours();
+        var m = today.getUTCMinutes();
+        var s = today.getUTCSeconds();
+        h = h + utcZone;
+        if (h > 24) {
+          h = h - 24;
+        }
+        if (h < 0) {
+          h = h + 24;
+        }
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+        return `${h}:${m}:${s}`;
+      }
+      
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i
+        };
+        return i;
+      }
+      
 }
