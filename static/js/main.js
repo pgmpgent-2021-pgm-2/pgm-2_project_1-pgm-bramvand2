@@ -179,33 +179,42 @@
                 const gitHubUsers = gitHubUsersApi.getGitHubUsers(searchInput);
                 return gitHubUsers; 
             },
+
+            async updateGitHubUsers (searchInput) {
+                const searchData = await this.fetchGitHubUsers(searchInput);
+                const searchedUsers = searchData.items.map((user) => {
+                    return `
+                        <li id="${user.login}" class="user__card">
+                            <img class="user__card__image" src="${user.avatar_url}" alt="Photo of ${user.login}">
+                            <span class="user__card__name">${user.login}</span>
+                        </li>
+                        `;
+                }).join('');
+
+                this.$gitHubUsersContainer.innerHTML += searchedUsers;
+                searchData.items.forEach(user => {
+                    const $user = document.querySelector(`#${user.login}`);
+                    $user.addEventListener('click', () => {
+                        this.updateGitHubUserDetail(user);
+                        this.updateUserRepos(user.login);
+                        this.updateUserFollowers(user.login);
+                    });
+                    console.log('done')
+                });
+            },
             
             updateGitHubUsersContainer () {
-                this.$searchBar.addEventListener('keyup', async (event) => {
-                    if(event.keyCode === 13){
-                        event.preventDefault();                 
-                        const searchData = await this.fetchGitHubUsers(this.$searchBar.value);
-                        const searchedUsers = await searchData.items.map((user) => {
-                            return `
-                                <li id="${user.login}" class="user__card">
-                                    <img class="user__card__image" src="${user.avatar_url}" alt="Photo of ${user.login}">
-                                    <span class="user__card__name">${user.login}</span>
-                                </li>
-                                `;
-                        }).join('');
-
-                        this.$gitHubUsersContainer.innerHTML += searchedUsers;
-                        searchData.items.forEach(user => {
-                            const $user = document.querySelector(`#${user.login}`);
-                            console.log($user)
-                            $user.addEventListener('click', () => {
-                                this.updateGitHubUserDetail(user);
-                                this.updateUserRepos(user.login);
-                                this.updateUserFollowers(user.login);
-                            } )
-                        });
+                this.$searchBar.addEventListener('keydown', (event) => {
+                    
+                    if(event.keyCode === 13) {
+                        if(this.$searchBar.value != 0){
+                            this.updateGitHubUsers(this.$searchBar.value);
+                        }
+                               
+                    }else{
+                        console.log('not enter')
                     }        
-                })
+                }, false);
             },
 
             updateGitHubUserDetail (user) {                
