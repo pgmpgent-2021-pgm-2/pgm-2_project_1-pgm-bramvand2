@@ -7,6 +7,7 @@
                 this.onClickShowPgmList();
                 this.onClickShowGitHubList();
                 this.onClickToggleDarkmode();
+                this.updateGitHubUsersContainer();
                 setInterval(() => this.updateDigitalClock(), 1000);
                 
                                
@@ -60,7 +61,7 @@
                 const usersApi = new UsersApi();
                 const usersData = await usersApi.getUserData();
                 this.updateUserContainer(usersData);
-                this.updateGitHubUsersContainer();
+                
             },
 
             updateUserContainer(data){
@@ -191,7 +192,7 @@
                         `;
                 }).join('');
 
-                this.$gitHubUsersContainer.innerHTML += searchedUsers;
+                this.$gitHubUsersContainer.innerHTML = searchedUsers;
                 searchData.items.forEach(user => {
                     const $user = document.querySelector(`#${user.login}`);
                     $user.addEventListener('click', () => {
@@ -207,9 +208,10 @@
                 this.$searchBar.addEventListener('keydown', (event) => {
                     
                     if(event.keyCode === 13) {
-                        if(this.$searchBar.value != 0){
+                        console.log('click');
+                        // if(this.$searchBar.value != 0){
                             this.updateGitHubUsers(this.$searchBar.value);
-                        }
+                        // }
                                
                     }else{
                         console.log('not enter')
